@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Deplpoyment</title>
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div id="container">
+        <div id="form_container">
+            <h1>Titanic Survival Prediction Model</h1>
+            <form action="{{ url_for('predict')}}" method="post">
+                <div class="form_group">
+                    <label for="">Passenger Class</label><br>
+                    <input type="number" name="pclass" list="pclass_list" placeholder = 'Select passenger class in which they aboard'><br><br>
+                      <datalist id="pclass_list">
+                        <option value=1>
+                        <option value=2>
+                        <option value=3>
+                      </datalist>
+                </div>
+                <div class="form_group">
+                    <label for="">Gender</label><br>
+                    <input type="text" name="sex" list="sex_list" placeholder = 'Select gender of the person'><br><br>
+                      <datalist id="sex_list">
+                        <option value="male">
+                        <option value="female"> 
+                      </datalist>
+                </div>
+                <div class="form_group">
+                    <label for="">Age</label><br>
+                    <input type="number" name="age" placeholder="Enter age of the passenger"><br><br>
+                </div>
+                <div class="form_group">
+                    <label for="">Siblings</label><br>
+                    <input type="number" name="sibsp" placeholder="Enter no. of siblings aboarded with the passenger"><br><br>
+                </div>
+                <div class="form_group">
+                    <label for="">Parents/Children</label><br>
+                    <input type="number" name="parch" placeholder="Enter no. of parents/children aboarded with the passenger"><br><br>
+                </div>
+                <div class="form_group">
+                    <label for="">Ticket Price</label><br>
+                    <input type="number" step = any name="fare" placeholder="Enter the price of the ticket"><br><br>
+                </div>
+                <div class="form_group">
+                    <label for="">Town</label><br>
+                    <input type="text" name="embark_town" list="town_list" placeholder = "Select the town from which person belongs"><br><br>
+                      <datalist id="town_list">
+                        <option value="Cherbourg">
+                        <option value="Southampton">   
+                        <option value="Queenstown">        
+                      </datalist>
+                </div>
+                 <div class="form_group">
+                    <label for="">Type of Person</label><br>
+                    <input type="text" name="who" list="who_list" placeholder = "Select the type of person "><br><br>
+                      <datalist id="who_list">
+                        <option value="man">
+                        <option value="woman">   
+                        <option value="child"><br>       
+                      </datalist>
+                </div>
+                <div class="form_group">
+                    <!-- <label for="">Submit</label><br> -->
+                    <input type="submit" value="predict" >
+                </div>
+            </form>
+        </div><br><br>
+        {{prediction_text}}
+    </div>
+</body>
+</html>
